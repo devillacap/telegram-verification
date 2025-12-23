@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="ht">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Verification +18</title>
+<style>
+body{margin:0;background:#020617;color:#fff;font-family:Arial,Helvetica,sans-serif;display:flex;align-items:center;justify-content:center;min-height:100vh;}
+.box{background:#0f172a;padding:30px;width:90%;max-width:380px;border-radius:14px;text-align:center;box-shadow:0 0 25px rgba(0,0,0,0.6);}
+h1{font-size:22px;margin-bottom:10px;}p{font-size:14px;opacity:.9;margin-bottom:25px;}
+.btn{color:#fff;border:none;width:100%;padding:16px;border-radius:10px;font-size:18px;font-weight:bold;cursor:not-allowed;opacity:.6;transition:background .3s,transform .3s;}
+.btn.active{cursor:pointer;opacity:1;animation:pulse 1.3s infinite,float 2s ease-in-out infinite;}
+.btn.first-click{background:#dc2626;}
+.btn.second-click{background:#16a34a;animation:none;}
+@keyframes pulse{0%{transform:scale(1)}50%{transform:scale(1.06)}100%{transform:scale(1)}}
+@keyframes float{0%,100%{transform:translateY(0) scale(1);}50%{transform:translateY(-5px) scale(1.02);}}
+.note{font-size:12px;opacity:.7;margin-top:15px;}
+#videoBox{max-height:0;overflow:hidden;opacity:0;transition:max-height .6s ease,opacity .6s ease;margin-top:18px;}
+#videoBox.show{max-height:1000px;opacity:1;}
+.video-wrap{background:#000;border-radius:12px;overflow:hidden;}
+video{width:100%;display:block;}
+.notice{font-size:13px;opacity:.85;margin-top:8px;}
+</style>
+</head>
+<body>
+<div class="box" id="locker">
+<h1>TELEGRAM +18</h1>
+<p id="msg">Tanpri tann kèk segond…</p>
+<button id="btn" class="btn first-click" disabled>Loading...</button>
+<div class="note">Nou mete video yo konsa se pou telegram pa bloke chanèl la</div>
+<div id="videoBox">
+<div class="video-wrap">
+<video controls muted playsinline preload="metadata" controlslist="nodownload nofullscreen noremoteplayback">
+<source src="https://res.cloudinary.com/df4xgzepj/video/upload/8275309842669981296_hvkwze.mp4" type="video/mp4">
+</video>
+</div>
+<div class="notice">▶ Play video a kounya</div>
+</div>
+</div>
+<script>
+const params = new URLSearchParams(window.location.search);
+const SRC = params.get("source")||"tg";
+const CID = params.get("clickid")||Date.now();
+const SMARTLINK = "https://lakns.com/link?z=10218973&var="+SRC+"&ymid="+CID;
+
+let delay=Math.floor(Math.random()*4)+2;
+let step=0;
+const btn=document.getElementById("btn");
+const msg=document.getElementById("msg");
+const videoBox=document.getElementById("videoBox");
+
+setTimeout(()=>{
+    btn.disabled=false;
+    btn.classList.add("active");
+    btn.innerText="👍 Mwen gen +18 | Verify 🔞";
+    msg.innerText="Klike pou verifye laj ou";
+}, delay*1000);
+
+btn.addEventListener("click",()=>{
+    step++;
+    if(step===1){
+        btn.innerText="👉 Klike ankò pou kontinye 🔞";
+        btn.classList.remove("first-click");
+        btn.classList.add("second-click");
+        msg.innerText="Verification an cours…";
+    }
+    if(step===2){
+        window.location.href = SMARTLINK;
+        setTimeout(()=>{window.scrollBy({top:120,behavior:"smooth"});},300);
+        const unlockDelay=4000+Math.random()*2000;
+        setTimeout(()=>{
+            msg.innerText="Ou ka gade video a kounya";
+            videoBox.classList.add("show");
+        },unlockDelay);
+    }
+});
+</script>
+</body>
+</html>
